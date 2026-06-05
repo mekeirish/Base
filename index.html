@@ -113,6 +113,7 @@
         .btn-socket.active-power .led  { background-color: #ff3b30; box-shadow: 0 0 10px #ff3b30, inset 0 1px 1px rgba(255,255,255,0.6); }
         .btn-socket.active-master .led { background-color: #ff453a; box-shadow: 0 0 10px #ff453a, inset 0 1px 1px rgba(255,255,255,0.6); }
         .btn-socket.active-brain .led  { background-color: #0a84ff; box-shadow: 0 0 10px #0a84ff, inset 0 1px 1px rgba(255,255,255,0.6); }
+        .btn-socket.active-rea .led    { background-color: #5ac8fa; box-shadow: 0 0 10px #5ac8fa, inset 0 1px 1px rgba(255,255,255,0.6); }
         .btn-socket.active-sniper .led { background-color: #ff375f; box-shadow: 0 0 10px #ff375f, inset 0 1px 1px rgba(255,255,255,0.6); }
         .btn-socket.active-lab .led    { background-color: #32d74b; box-shadow: 0 0 10px #32d74b, inset 0 1px 1px rgba(255,255,255,0.6); }
         .btn-socket.active-hub .led    { background-color: #ffd60a; box-shadow: 0 0 10px #ffd60a, inset 0 1px 1px rgba(255,255,255,0.6); }
@@ -122,6 +123,7 @@
         /* Éclairage du texte actif */
         .btn-socket.active-master .pwa-btn.active { text-shadow: 0 0 5px rgba(255, 69, 58, 0.5); }
         .btn-socket.active-brain .pwa-btn.active  { text-shadow: 0 0 5px rgba(10, 132, 255, 0.5); }
+        .btn-socket.active-rea .pwa-btn.active    { text-shadow: 0 0 5px rgba(90, 200, 250, 0.5); }
         .btn-socket.active-sniper .pwa-btn.active { text-shadow: 0 0 5px rgba(255, 55, 95, 0.5); }
         .btn-socket.active-lab .pwa-btn.active    { text-shadow: 0 0 5px rgba(50, 215, 75, 0.5); }
         .btn-socket.active-hub .pwa-btn.active    { text-shadow: 0 0 5px rgba(255, 214, 10, 0.5); }
@@ -213,6 +215,9 @@
 
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#4b6cb7">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4b6cb7">
 <link rel="apple-touch-icon" href="icon.png"></head>
 <body>
 
@@ -228,6 +233,11 @@
         <div id="socket-master" class="btn-socket">
             <div class="led"></div>
             <button id="btn-master" class="pwa-btn" onclick="switchTab('master', this, 'master')">Master</button>
+        </div>
+        <!-- NOUVEAU BOUTON REA entre Master et Brain -->
+        <div id="socket-rea" class="btn-socket">
+            <div class="led"></div>
+            <button id="btn-rea" class="pwa-btn" onclick="switchTab('rea', this, 'rea')">Rea</button>
         </div>
         <div id="socket-brain" class="btn-socket">
             <div class="led"></div>
@@ -263,6 +273,7 @@
             
             <div class="content-area">
                 <iframe id="iframe-master" data-src="https://mekeirish.github.io/Mastercode/" allow="geolocation; microphone; camera; clipboard-write; clipboard-read"></iframe>
+                <iframe id="iframe-rea" data-src="https://mekeirish.github.io/Reaactorbeta/" allow="geolocation; microphone; camera; clipboard-write; clipboard-read"></iframe>
                 <iframe id="iframe-brain" data-src="https://mekeirish.github.io/Braincode/" allow="geolocation; microphone; camera; clipboard-write; clipboard-read"></iframe>
                 <iframe id="iframe-sniper" data-src="https://mekeirish.github.io/Snipercode/" allow="geolocation; microphone; camera; clipboard-write; clipboard-read"></iframe>
                 <iframe id="iframe-lab" data-src="https://mekeirish.github.io/Labcode/" allow="geolocation; microphone; camera; clipboard-write; clipboard-read"></iframe>
@@ -369,6 +380,8 @@
             }
         });
     </script>
+
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
 
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
 </body>
